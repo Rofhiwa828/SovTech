@@ -1,0 +1,19 @@
+Feature: Create and Link an account
+
+  @run
+  Scenario Outline: Create and link a Cheque account to a profile                  # CreateAndLink.feature:4
+    Given I am able to setup the Create and Link API with a cif key of "<Cif Key>"
+    And I set the account to link as "<Cif Key>"
+    And The product code I would like to add is "<Product Code>"
+    When I Post Request to link an account
+    Then I should get a status code of "<Status Code>"
+
+    Examples: 
+
+  @run
+  Scenario Outline: Create and link a Cheque account to a profile                   # CreateAndLink.feature:14
+    Given I am able to setup the Create and Link API with a cif key of "MOKGOOV001" # CreateAndLinkAPI.i_am_able_to_setup_the_Create_and_Link_API_with_a_cif_key_of(String)
+    And I set the account to link as "MOKGOOV001"                                   # CreateAndLinkAPI.i_set_the_account_to_link_as(String)
+    And The product code I would like to add is "11032"                             # CreateAndLinkAPI.the_product_code_I_would_like_to_add_is(String)
+    When I Post Request to link an account                                          # CreateAndLinkAPI.i_Post_Request_to_link_an_account()
+    Then I should get a status code of "200"                                        # CreateAndLinkAPI.i_should_get_a_status_code_of(int)

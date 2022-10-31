@@ -1,0 +1,96 @@
+{
+  "NBSAPDPI": {
+    "inputHeaders": {
+      "channel": "SALEFRCE",
+      "applicationName": "API",
+      "traceIndicator": "T"
+    }
+  },
+  "NBSMSGI": {
+    "inputErrorMessage": {
+      "errorMessageLanguage": "E",
+      "errorMessageTarget": "STD"
+    }
+  },
+  "CCS884I": {
+    "inputArea": {
+      "genericInput": {
+        "inputChannelName": "SALEFRCE",
+        "tellerCode": 2920,
+        "supervisor": 2880,
+        "branchCode": 8198,
+        "agencyCode": 0,
+        "option": "P",
+        "cardRequest": "N",
+        "cardType": "C",
+        "ECFIndicator": 0,
+        "clientCode": "VERCUD 001",
+        "personalizedIndicator": "Y"
+      },
+      "retrievalList": {
+        "informationAccountNumber": 0
+      },
+      "genericIssuanceInput": {
+        "brandNumber": 2141,
+        "secondaryClientCode": "",
+        "personalizedName": "COMBI",
+        "productCode": 11032,
+        "cardFeeIndicator": "Y",
+        "deliveryMethod": "B",
+        "deliveryBranch": 8198
+      },
+      "newIssuanceInput": {
+        "cardNumber": 0,
+        "tokenReference": 0,
+        "businessIDType": "I",
+        "businessIDNumber": "",
+        "businessNameIndicator": "",
+        "businessSecondaryName": "",
+        "nominatedCQAccount": 4048334645,
+        "nominatedSVAccount": 0,
+        "autoLinkIndicator": "N",
+        "pinRequiredIndicator": "Y",
+        "lostProtectionFeeIndicator": "N",
+        "disabilityIndicator": " "
+      },
+      "replacementInput": {
+        "oldCardOpenIndicator": " ",
+        "replacementReason": 0,
+        "oldCardDetails": [
+          {
+            "oldCardNumber": 0,
+            "oldHoldCode": 0,
+            "newBulkCardNumber": 0
+          }
+        ],
+        "replacementHoldDetail": {
+          "visaCode": " ",
+          "mcrdCode": " ",
+          "mcrdSubCode": " ",
+          "numberofTimesLost": 0,
+          "priorityDate": 0,
+          "reportTakenBy": " ",
+          "reportPerson": " ",
+          "howReported": " ",
+          "personalPhoneNumber": " ",
+          "businessPhoneNumber": " ",
+          "lossDate": 0,
+          "lossTime": 0,
+          "lossPlace": " ",
+          "lossHow": " ",
+          "lossNumberOfCards": 0,
+          "dateLastUsed": 0,
+          "placeLastUsed": " ",
+          "circumstance": " ",
+          "cardSignedIndicator": " ",
+          "pinSafeIndicator": " ",
+          "useCardsIndicator": " ",
+          "policeReportNumber": " ",
+          "policeReportDate": 0,
+          "policeReportLocation": " ",
+          "addComments": " "
+        }
+      }
+    }
+  }
+}
