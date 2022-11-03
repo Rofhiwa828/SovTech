@@ -1,122 +1,139 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("CreateAndLink.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("DebitCardIssuance.feature");
 formatter.feature({
-  "line": 1,
-  "name": "Create and Link an account",
+  "line": 2,
+  "name": "Debit Card Issuance End Point",
   "description": "",
-  "id": "create-and-link-an-account",
-  "keyword": "Feature"
-});
-formatter.scenarioOutline({
-  "line": 4,
-  "name": "Create and link a Cheque account to a profile",
-  "description": "",
-  "id": "create-and-link-an-account;create-and-link-a-cheque-account-to-a-profile",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline",
+  "id": "debit-card-issuance-end-point",
+  "keyword": "Feature",
   "tags": [
     {
-      "line": 3,
+      "line": 1,
       "name": "@run"
     }
   ]
 });
+formatter.scenarioOutline({
+  "line": 4,
+  "name": "Issue a combi to an account",
+  "description": "",
+  "id": "debit-card-issuance-end-point;issue-a-combi-to-an-account",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline"
+});
 formatter.step({
   "line": 6,
-  "name": "I am able to setup the Create and Link API with a cif key of \"\u003cCif Key\u003e\"",
+  "name": "I am able to setup Debit Card Issuance Authentication",
   "keyword": "Given "
 });
 formatter.step({
   "line": 7,
-  "name": "I set the account to link as \"\u003cCif Key\u003e\"",
+  "name": "I am able to setup Debit Card Issuance Headers",
   "keyword": "And "
 });
 formatter.step({
   "line": 8,
-  "name": "The product code I would like to add is \"\u003cProduct Code\u003e\"",
+  "name": "I set the client code as \"\u003cclientCode\u003e\"",
   "keyword": "And "
 });
 formatter.step({
   "line": 9,
-  "name": "I Post Request to link an account",
-  "keyword": "When "
+  "name": "I set the Nominate Cheque Account as \"\u003cnominatedCQAccount\u003e\"",
+  "keyword": "And "
 });
 formatter.step({
   "line": 10,
+  "name": "I post the Debit Card Issuance end point",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 11,
+  "name": "I validate if the combi card is returned",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 12,
   "name": "I should get a status code of \"\u003cStatus Code\u003e\"",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 12,
+  "line": 14,
   "name": "",
   "description": "",
-  "id": "create-and-link-an-account;create-and-link-a-cheque-account-to-a-profile;",
+  "id": "debit-card-issuance-end-point;issue-a-combi-to-an-account;",
   "rows": [
     {
       "cells": [
-        "Cif Key",
-        "Product Code",
+        "clientCode",
+        "nominatedCQAccount",
         "Status Code"
       ],
-      "line": 13,
-      "id": "create-and-link-an-account;create-and-link-a-cheque-account-to-a-profile;;1"
+      "line": 15,
+      "id": "debit-card-issuance-end-point;issue-a-combi-to-an-account;;1"
     },
     {
       "cells": [
-        "MOKGOOV001",
-        "11032",
+        "BURGET 004",
+        "4048902688",
         "200"
       ],
-      "line": 14,
-      "id": "create-and-link-an-account;create-and-link-a-cheque-account-to-a-profile;;2"
+      "line": 16,
+      "id": "debit-card-issuance-end-point;issue-a-combi-to-an-account;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 14,
-  "name": "Create and link a Cheque account to a profile",
+  "line": 16,
+  "name": "Issue a combi to an account",
   "description": "",
-  "id": "create-and-link-an-account;create-and-link-a-cheque-account-to-a-profile;;2",
+  "id": "debit-card-issuance-end-point;issue-a-combi-to-an-account;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 3,
+      "line": 1,
       "name": "@run"
     }
   ]
 });
 formatter.step({
   "line": 6,
-  "name": "I am able to setup the Create and Link API with a cif key of \"MOKGOOV001\"",
-  "matchedColumns": [
-    0
-  ],
+  "name": "I am able to setup Debit Card Issuance Authentication",
   "keyword": "Given "
 });
 formatter.step({
   "line": 7,
-  "name": "I set the account to link as \"MOKGOOV001\"",
+  "name": "I am able to setup Debit Card Issuance Headers",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 8,
+  "name": "I set the client code as \"BURGET 004\"",
   "matchedColumns": [
     0
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 8,
-  "name": "The product code I would like to add is \"11032\"",
+  "line": 9,
+  "name": "I set the Nominate Cheque Account as \"4048902688\"",
   "matchedColumns": [
     1
   ],
   "keyword": "And "
 });
 formatter.step({
-  "line": 9,
-  "name": "I Post Request to link an account",
+  "line": 10,
+  "name": "I post the Debit Card Issuance end point",
   "keyword": "When "
 });
 formatter.step({
-  "line": 10,
+  "line": 11,
+  "name": "I validate if the combi card is returned",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 12,
   "name": "I should get a status code of \"200\"",
   "matchedColumns": [
     2
@@ -124,49 +141,57 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "MOKGOOV001",
-      "offset": 62
-    }
-  ],
-  "location": "CreateAndLinkAPI.i_am_able_to_setup_the_Create_and_Link_API_with_a_cif_key_of(String)"
+  "location": "CCDebitCardIssuance.i_am_able_to_setup_Debit_Card_Issuance_Authentication()"
 });
 formatter.result({
-  "duration": 604364300,
+  "duration": 598260200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CCDebitCardIssuance.i_am_able_to_setup_Debit_Card_Issuance_Headers()"
+});
+formatter.result({
+  "duration": 56361200,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "MOKGOOV001",
-      "offset": 30
+      "val": "BURGET 004",
+      "offset": 26
     }
   ],
-  "location": "CreateAndLinkAPI.i_set_the_account_to_link_as(String)"
+  "location": "CCDebitCardIssuance.i_set_the_client_code_as(String)"
 });
 formatter.result({
-  "duration": 4274700,
+  "duration": 35181000,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "11032",
-      "offset": 41
+      "val": "4048902688",
+      "offset": 38
     }
   ],
-  "location": "CreateAndLinkAPI.the_product_code_I_would_like_to_add_is(String)"
+  "location": "CCDebitCardIssuance.i_set_the_Nominate_Cheque_Account_as(String)"
 });
 formatter.result({
-  "duration": 4916800,
+  "duration": 4210400,
   "status": "passed"
 });
 formatter.match({
-  "location": "CreateAndLinkAPI.i_Post_Request_to_link_an_account()"
+  "location": "CCDebitCardIssuance.i_post_the_Debit_Card_Issuance_end_point()"
 });
 formatter.result({
-  "duration": 2436693100,
+  "duration": 2169927900,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CCDebitCardIssuance.i_validate_if_the_combi_card_is_returned()"
+});
+formatter.result({
+  "duration": 4143300,
   "status": "passed"
 });
 formatter.match({
@@ -176,10 +201,205 @@ formatter.match({
       "offset": 31
     }
   ],
-  "location": "CreateAndLinkAPI.i_should_get_a_status_code_of(int)"
+  "location": "CCDebitCardIssuance.i_should_get_a_status_code_of(int)"
 });
 formatter.result({
-  "duration": 2532100,
+  "duration": 1146200,
+  "status": "passed"
+});
+formatter.scenarioOutline({
+  "line": 18,
+  "name": "Issue a combi with an Invalid Nominated account",
+  "description": "",
+  "id": "debit-card-issuance-end-point;issue-a-combi-with-an-invalid-nominated-account",
+  "type": "scenario_outline",
+  "keyword": "Scenario Outline"
+});
+formatter.step({
+  "line": 20,
+  "name": "I am able to setup Debit Card Issuance Authentication",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 21,
+  "name": "I am able to setup Debit Card Issuance Headers",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 22,
+  "name": "I set the client code as \"\u003cclientCode\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 23,
+  "name": "I set the Nominate Cheque Account as \"\u003cnominatedCQAccount\u003e\"",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 24,
+  "name": "I post the Debit Card Issuance end point",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 25,
+  "name": "I validate if I get the correct error message",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 26,
+  "name": "I should get a status code of \"\u003cStatus Code\u003e\"",
+  "keyword": "Then "
+});
+formatter.examples({
+  "line": 28,
+  "name": "",
+  "description": "",
+  "id": "debit-card-issuance-end-point;issue-a-combi-with-an-invalid-nominated-account;",
+  "rows": [
+    {
+      "cells": [
+        "clientCode",
+        "nominatedCQAccount",
+        "Status Code"
+      ],
+      "line": 29,
+      "id": "debit-card-issuance-end-point;issue-a-combi-with-an-invalid-nominated-account;;1"
+    },
+    {
+      "cells": [
+        "BURGET 004",
+        "4048874524",
+        "200"
+      ],
+      "line": 30,
+      "id": "debit-card-issuance-end-point;issue-a-combi-with-an-invalid-nominated-account;;2"
+    }
+  ],
+  "keyword": "Examples"
+});
+formatter.scenario({
+  "line": 30,
+  "name": "Issue a combi with an Invalid Nominated account",
+  "description": "",
+  "id": "debit-card-issuance-end-point;issue-a-combi-with-an-invalid-nominated-account;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 1,
+      "name": "@run"
+    }
+  ]
+});
+formatter.step({
+  "line": 20,
+  "name": "I am able to setup Debit Card Issuance Authentication",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 21,
+  "name": "I am able to setup Debit Card Issuance Headers",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 22,
+  "name": "I set the client code as \"BURGET 004\"",
+  "matchedColumns": [
+    0
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 23,
+  "name": "I set the Nominate Cheque Account as \"4048874524\"",
+  "matchedColumns": [
+    1
+  ],
+  "keyword": "And "
+});
+formatter.step({
+  "line": 24,
+  "name": "I post the Debit Card Issuance end point",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 25,
+  "name": "I validate if I get the correct error message",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 26,
+  "name": "I should get a status code of \"200\"",
+  "matchedColumns": [
+    2
+  ],
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "CCDebitCardIssuance.i_am_able_to_setup_Debit_Card_Issuance_Authentication()"
+});
+formatter.result({
+  "duration": 227900,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CCDebitCardIssuance.i_am_able_to_setup_Debit_Card_Issuance_Headers()"
+});
+formatter.result({
+  "duration": 422600,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "BURGET 004",
+      "offset": 26
+    }
+  ],
+  "location": "CCDebitCardIssuance.i_set_the_client_code_as(String)"
+});
+formatter.result({
+  "duration": 4857200,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "4048874524",
+      "offset": 38
+    }
+  ],
+  "location": "CCDebitCardIssuance.i_set_the_Nominate_Cheque_Account_as(String)"
+});
+formatter.result({
+  "duration": 4984800,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CCDebitCardIssuance.i_post_the_Debit_Card_Issuance_end_point()"
+});
+formatter.result({
+  "duration": 264778600,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CCDebitCardIssuance.i_validate_if_I_get_the_corret_error_message()"
+});
+formatter.result({
+  "duration": 467200,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "200",
+      "offset": 31
+    }
+  ],
+  "location": "CCDebitCardIssuance.i_should_get_a_status_code_of(int)"
+});
+formatter.result({
+  "duration": 73400,
   "status": "passed"
 });
 });

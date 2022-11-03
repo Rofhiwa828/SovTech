@@ -1,5 +1,7 @@
 package utilities;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,6 +35,17 @@ public class HelperMethods {
         // Use the date formatter to produce a formatted date string
         Date previousDate = calendar.getTime();
         return Integer.parseInt(Integer.toString(Integer.parseInt(dateFormat.format(previousDate))));
+    }
+
+    public static void WriteToJsonFile(String jsonObject, String path){
+
+        try {
+            FileWriter file = new FileWriter(path);
+            file.write(jsonObject);
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

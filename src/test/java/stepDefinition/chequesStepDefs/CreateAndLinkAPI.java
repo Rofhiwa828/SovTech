@@ -8,8 +8,8 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import utilities.HelperMethods;
-import utilities.JsonParameterController;
-import utilities.ResponseMessageConstants;
+import utilities.CreateAndLinkJsonController;
+import ResponseMessages.ChequesResponseMessageConstants;
 
 
 public class CreateAndLinkAPI {
@@ -31,20 +31,20 @@ public class CreateAndLinkAPI {
                 .header("applicationID", "BDP")
                 .header("userid", "ab020xd")
                 .header("deviceid", "22");
-        request.body(JsonParameterController.SetCreateAndLinkJsonParameter("effectiveDate", HelperMethods.GetTodaysDate()));
+        request.body(CreateAndLinkJsonController.SetCreateAndLinkJsonParameter("effectiveDate", HelperMethods.GetTodaysDate()));
 
     }
 
     @Given("^I set the account to link as \"([^\"]*)\"$")
     public void i_set_the_account_to_link_as(String cifKey)  {
 
-        request.body(JsonParameterController.SetCreateAndLinkJsonParameter("cifKey", cifKey));
+        request.body(CreateAndLinkJsonController.SetCreateAndLinkJsonParameter("cifKey", cifKey));
     }
 
     @Given("^The product code I would like to add is \"([^\"]*)\"$")
     public void the_product_code_I_would_like_to_add_is(String productCode) {
 
-        request.body(JsonParameterController.SetCreateAndLinkJsonParameter("product", Integer.parseInt(productCode)));
+        request.body(CreateAndLinkJsonController.SetCreateAndLinkJsonParameter("product", Integer.parseInt(productCode)));
     }
 
     @When("^I Post Request to link an account$")
@@ -59,36 +59,36 @@ public class CreateAndLinkAPI {
     @Given("^I set the date to over eight days before$")
     public void i_set_the_date_to_over_eight_days_before() throws Throwable {
 
-        request.body(JsonParameterController.SetCreateAndLinkJsonParameter("effectiveDate", HelperMethods.Get8DaysBeforeCurrentDate()));
+        request.body(CreateAndLinkJsonController.SetCreateAndLinkJsonParameter("effectiveDate", HelperMethods.Get8DaysBeforeCurrentDate()));
     }
 
     @When("^I should get an Invalid category code response$")
     public void i_should_get_an_Invalid_category_code_response(){
 
-        responseMessage= JsonParameterController.ReadResponseMessage(res.prettyPrint());
-        Assert.assertEquals(ResponseMessageConstants.invalidCategoryCodeResponse,responseMessage);
+        responseMessage= CreateAndLinkJsonController.ReadResponseMessage(res.prettyPrint());
+        Assert.assertEquals(ChequesResponseMessageConstants.invalidCategoryCodeResponse,responseMessage);
 
     }
 
     @When("^I get the response message that client type is incompatible$")
     public void i_get_the_response_message_that_client_type_is_incompatible() {
 
-        responseMessage= JsonParameterController.ReadResponseMessage(res.prettyPrint());
-        Assert.assertEquals(ResponseMessageConstants.clientTypeIncompatible,responseMessage);
+        responseMessage= CreateAndLinkJsonController.ReadResponseMessage(res.prettyPrint());
+        Assert.assertEquals(ChequesResponseMessageConstants.clientTypeIncompatible,responseMessage);
     }
 
     @When("^I get the response message from the account creation module$")
     public void i_get_the_response_message_from_the_account_creation_module() {
 
-        responseMessage= JsonParameterController.ReadResponseMessage(res.prettyPrint());
-        Assert.assertEquals(ResponseMessageConstants.backDateResponse,responseMessage);
+        responseMessage= CreateAndLinkJsonController.ReadResponseMessage(res.prettyPrint());
+        Assert.assertEquals(ChequesResponseMessageConstants.creationModuleError,responseMessage);
     }
 
     @When("^I get the response message that the open date may only be back-dated 7 days$")
     public void i_get_the_response_message_that_the_open_date_may_only_be_back_dated_days() {
 
-        responseMessage= JsonParameterController.ReadResponseMessage(res.prettyPrint());
-        Assert.assertEquals(ResponseMessageConstants.backDateResponse,responseMessage);
+        responseMessage= CreateAndLinkJsonController.ReadResponseMessage(res.prettyPrint());
+        Assert.assertEquals(ChequesResponseMessageConstants.backDateResponse,responseMessage);
     }
 
     @Then("^I should get a status code of \"([^\"]*)\"$")

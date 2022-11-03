@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class JsonParameterController {
+public class CreateAndLinkJsonController {
 
     public static String SetCreateAndLinkJsonParameter(String key, String value){
 

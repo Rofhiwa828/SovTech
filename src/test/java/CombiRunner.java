@@ -1,4 +1,3 @@
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
@@ -7,15 +6,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "Feature Files/ChequesFeatures",
-        glue = {"stepDefinition/chequesStepDefs"},
+        features = "Feature Files/CombiFeatures",
+        glue = {"stepDefinition/combiStepDefs"},
         monochrome = true,
         dryRun = false,
         plugin = {"pretty:STDOUT","html:Reports/cucumberhtmlreport",
         "com.cucumber.listener.ExtentCucumberFormatter:Output/Report.html"},tags = "@run"
 
 )
-public class RunCuke {
+public class CombiRunner {
 
 
 }

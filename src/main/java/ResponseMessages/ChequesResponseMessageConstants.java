@@ -1,6 +1,6 @@
-package utilities;
+package ResponseMessages;
 
-public class ResponseMessageConstants {
+public class ChequesResponseMessageConstants {
 
 
     public static final String backDateResponse = "The open date may only be back-dated 7 days.";

@@ -1,6 +1,6 @@
-Feature: Create and Link an account
+@run
+Feature: Create and Link an account End Point
 
-  @run
   Scenario Outline: Create and link a Cheque account to a profile
 
     Given I am able to setup the Create and Link API with a cif key of "<Cif Key>"
@@ -42,7 +42,7 @@ Feature: Create and Link an account
       | Cif Key     |Product Code |Status Code|
       | MOKGOOV001  | 11032       | 200       |
 
-  Scenario Outline: Opening a Prosperity account using a profile of a user younger than 55 years
+  Scenario Outline: Opening a Prosperity account using a profile of a user older than 55 years
 
     Given I am able to setup the Create and Link API with a cif key of "<Cif Key>"
     And I set the account to link as "<Cif Key>"

@@ -47,7 +47,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Oct 29, 2022 11:15:40 AM</span>
+                    <span class='label suite-start-time blue darken-3'>Nov 2, 2022 12:01:14 PM</span>
 				</a>
 			</li>
 			<li>
@@ -148,7 +148,7 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>2</span> scenario(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -163,7 +163,7 @@
 					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>5</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>14</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
 					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
@@ -182,16 +182,16 @@
 				
 				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>Create and Link an account</span>
-						<span class='test-time'>Oct 29, 2022 11:15:40 AM</span>
+						<span class='test-name'>Debit Card Issuance End Point</span>
+						<span class='test-time'>Nov 2, 2022 12:01:14 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='scenariooutline node' test-id='2' status='pass'>
-	<span class='duration right label'>0h 0m 3s+140ms</span>
+	<span class='duration right label'>0h 0m 2s+961ms</span>
 	<div class='desc'>
 		<b>ScenarioOutline</b>
-		<span class="desc-text">Create and link a Cheque account to a profile</span>
+		<span class="desc-text">Issue a combi to an account</span>
 	</div>
 	<ul class='steps'>
 		<li test-id='3' class='node scenario pass' status='pass'>
@@ -201,26 +201,85 @@
 			
 			<b>Scenario</b>
 			
-			<span class="bdd-step-name">Create and link a Cheque account to a profile</span>
+			<span class="bdd-step-name">Issue a combi to an account</span>
 			
 				<ul class='steps'>
 					<li test-id='4' class='node given pass' status='pass'><b>Given</b>
-						<span class="bdd-step-name">Given I am able to setup the Create and Link API with a cif key of "MOKGOOV001"</span>
+						<span class="bdd-step-name">Given I am able to setup Debit Card Issuance Authentication</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='5' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And I set the account to link as "MOKGOOV001"</span>
+						<span class="bdd-step-name">And I am able to setup Debit Card Issuance Headers</span>
 							<div class='pre'>passed</div>
 					</li>
 					<li test-id='6' class='node and pass' status='pass'><b>And</b>
-						<span class="bdd-step-name">And The product code I would like to add is "11032"</span>
+						<span class="bdd-step-name">And I set the client code as "BURGET 004"</span>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='7' class='node when pass' status='pass'><b>When</b>
-						<span class="bdd-step-name">When I Post Request to link an account</span>
+					<li test-id='7' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I set the Nominate Cheque Account as "4048902688"</span>
 							<div class='pre'>passed</div>
 					</li>
-					<li test-id='8' class='node then pass' status='pass'><b>Then</b>
+					<li test-id='8' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I post the Debit Card Issuance end point</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='9' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I validate if the combi card is returned</span>
+							<div class='pre'>Card Number: 4483870000230650</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='10' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I should get a status code of "200"</span>
+							<div class='pre'>passed</div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='11' status='pass'>
+	<span class='duration right label'>0h 0m 0s+287ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">Issue a combi with an Invalid Nominated account</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='12' class='node scenario pass' status='pass'>
+			<div class='category-list'>
+				<span class='category label white-text'>@run</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">Issue a combi with an Invalid Nominated account</span>
+			
+				<ul class='steps'>
+					<li test-id='13' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I am able to setup Debit Card Issuance Authentication</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='14' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I am able to setup Debit Card Issuance Headers</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='15' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I set the client code as "BURGET 004"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='16' class='node and pass' status='pass'><b>And</b>
+						<span class="bdd-step-name">And I set the Nominate Cheque Account as "4048874524"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I post the Debit Card Issuance end point</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I validate if I get the correct error message</span>
+							<div class='pre'>Error message: Client has not nominated a CQ / SV / CR Account, in CIF portfolio</div>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node then pass' status='pass'><b>Then</b>
 						<span class="bdd-step-name">Then I should get a status code of "200"</span>
 							<div class='pre'>passed</div>
 					</li>
@@ -284,12 +343,12 @@
 					<div class='category-heading'>
 						<span class='category-name'>@run</span>
 						<span class='category-status right'>
-							<span class='label pass'>1</span>
+							<span class='label pass'>3</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 1</span>
+							<span class='label green accent-4 white-text'>Passed: 3</span>
 							
 							
 						</div>
@@ -305,8 +364,18 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Oct 29, 2022 11:15:40 AM</td>
-										<td class='linked' test-id='3'>Create and Link an account.Create and link a Cheque account to a profile.Create and link a Cheque account to a profile</td>
+										<td>Nov 2, 2022 12:01:14 PM</td>
+										<td class='linked' test-id='1'>Debit Card Issuance End Point</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Nov 2, 2022 12:01:14 PM</td>
+										<td class='linked' test-id='3'>Debit Card Issuance End Point.Issue a combi to an account.Issue a combi to an account</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Nov 2, 2022 12:01:17 PM</td>
+										<td class='linked' test-id='12'>Debit Card Issuance End Point.Issue a combi with an Invalid Nominated account.Issue a combi with an Invalid Nominated account</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 								</tbody>
@@ -341,31 +410,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>5</div>
+					<div class='panel-lead'>14</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Oct 29, 2022 11:15:40 AM</div>
+					<div class='panel-lead'>Nov 2, 2022 12:01:14 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Oct 29, 2022 11:15:43 AM</div>
+			 		<div class='panel-lead'>Nov 2, 2022 12:01:17 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 3s+239ms</div>
+					<div class='panel-lead'>0h 0m 3s+376ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -382,7 +451,7 @@
 						</tr>
 						<tr>
 							<td>@run</td>
-							<td>1</td>
+							<td>3</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
@@ -410,7 +479,7 @@
 				skipParent: 0,
 				exceptionsParent: 0,
 				
-				passChild: 1,
+				passChild: 2,
 				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
@@ -419,7 +488,7 @@
 				infoChild: 0,
 				exceptionsChild: 0,
 				
-				passGrandChild: 5,
+				passGrandChild: 14,
 				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,

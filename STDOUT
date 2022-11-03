@@ -1,19 +1,44 @@
-Feature: Create and Link an account
+@run
+Feature: Debit Card Issuance End Point
 
-  @run
-  Scenario Outline: Create and link a Cheque account to a profile                  # CreateAndLink.feature:4
-    Given I am able to setup the Create and Link API with a cif key of "<Cif Key>"
-    And I set the account to link as "<Cif Key>"
-    And The product code I would like to add is "<Product Code>"
-    When I Post Request to link an account
+  Scenario Outline: Issue a combi to an account                     # DebitCardIssuance.feature:4
+    Given I am able to setup Debit Card Issuance Authentication
+    And I am able to setup Debit Card Issuance Headers
+    And I set the client code as "<clientCode>"
+    And I set the Nominate Cheque Account as "<nominatedCQAccount>"
+    When I post the Debit Card Issuance end point
+    Then I validate if the combi card is returned
     Then I should get a status code of "<Status Code>"
 
     Examples: 
 
   @run
-  Scenario Outline: Create and link a Cheque account to a profile                   # CreateAndLink.feature:14
-    Given I am able to setup the Create and Link API with a cif key of "MOKGOOV001" # CreateAndLinkAPI.i_am_able_to_setup_the_Create_and_Link_API_with_a_cif_key_of(String)
-    And I set the account to link as "MOKGOOV001"                                   # CreateAndLinkAPI.i_set_the_account_to_link_as(String)
-    And The product code I would like to add is "11032"                             # CreateAndLinkAPI.the_product_code_I_would_like_to_add_is(String)
-    When I Post Request to link an account                                          # CreateAndLinkAPI.i_Post_Request_to_link_an_account()
-    Then I should get a status code of "200"                                        # CreateAndLinkAPI.i_should_get_a_status_code_of(int)
+  Scenario Outline: Issue a combi to an account                 # DebitCardIssuance.feature:16
+    Given I am able to setup Debit Card Issuance Authentication # CCDebitCardIssuance.i_am_able_to_setup_Debit_Card_Issuance_Authentication()
+    And I am able to setup Debit Card Issuance Headers          # CCDebitCardIssuance.i_am_able_to_setup_Debit_Card_Issuance_Headers()
+    And I set the client code as "BURGET 004"                   # CCDebitCardIssuance.i_set_the_client_code_as(String)
+    And I set the Nominate Cheque Account as "4048902688"       # CCDebitCardIssuance.i_set_the_Nominate_Cheque_Account_as(String)
+    When I post the Debit Card Issuance end point               # CCDebitCardIssuance.i_post_the_Debit_Card_Issuance_end_point()
+    Then I validate if the combi card is returned               # CCDebitCardIssuance.i_validate_if_the_combi_card_is_returned()
+    Then I should get a status code of "200"                    # CCDebitCardIssuance.i_should_get_a_status_code_of(int)
+
+  Scenario Outline: Issue a combi with an Invalid Nominated account # DebitCardIssuance.feature:18
+    Given I am able to setup Debit Card Issuance Authentication
+    And I am able to setup Debit Card Issuance Headers
+    And I set the client code as "<clientCode>"
+    And I set the Nominate Cheque Account as "<nominatedCQAccount>"
+    When I post the Debit Card Issuance end point
+    Then I validate if I get the correct error message
+    Then I should get a status code of "<Status Code>"
+
+    Examples: 
+
+  @run
+  Scenario Outline: Issue a combi with an Invalid Nominated account # DebitCardIssuance.feature:30
+    Given I am able to setup Debit Card Issuance Authentication     # CCDebitCardIssuance.i_am_able_to_setup_Debit_Card_Issuance_Authentication()
+    And I am able to setup Debit Card Issuance Headers              # CCDebitCardIssuance.i_am_able_to_setup_Debit_Card_Issuance_Headers()
+    And I set the client code as "BURGET 004"                       # CCDebitCardIssuance.i_set_the_client_code_as(String)
+    And I set the Nominate Cheque Account as "4048874524"           # CCDebitCardIssuance.i_set_the_Nominate_Cheque_Account_as(String)
+    When I post the Debit Card Issuance end point                   # CCDebitCardIssuance.i_post_the_Debit_Card_Issuance_end_point()
+    Then I validate if I get the correct error message              # CCDebitCardIssuance.i_validate_if_I_get_the_corret_error_message()
+    Then I should get a status code of "200"                        # CCDebitCardIssuance.i_should_get_a_status_code_of(int)
